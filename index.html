@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="일상 속 16가지 선택으로 내 안에 숨어있는 동물을 만나보세요.">
+  <meta name="theme-color" content="#100d1b">
+  <title>내 안에 숨어있는 동물</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header page-width">
+    <span class="brand"><span class="brand-icon" aria-hidden="true">✦</span> 달빛 성향 탐험</span>
+    <span class="edition">MOONLIT ANIMAL TEST</span>
+  </header>
+
+  <main class="page-width">
+    <section class="welcome panel" id="welcome" aria-labelledby="welcome-title">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span> MBTI 성향 테스트</p>
+        <h1 id="welcome-title" tabindex="-1">내 안에 숨어있는<br><em>동물</em></h1>
+        <p class="intro">쉬는 날의 모습부터 친구와 의견이 다를 때까지.<br class="desktop-break"> 일상 속 선택으로 나와 닮은 동물을 만나보세요.</p>
+        <div class="facts"><span>16개 질문</span><span>약 3분</span><span>16가지 동물</span></div>
+        <div class="welcome-actions">
+          <button type="button" class="button primary" id="start">테스트 시작 <span aria-hidden="true">→</span></button>
+          <button type="button" class="button secondary" id="resume" hidden>이어하기 <span aria-hidden="true">→</span></button>
+          <button type="button" class="text-button" id="latest" hidden>최근 결과 보기</button>
+        </div>
+      </div>
+      <div class="forest" aria-hidden="true">
+        <span class="forest-moon"></span>
+        <span class="forest-tree forest-tree-left"></span>
+        <span class="forest-tree forest-tree-right"></span>
+        <span class="forest-sparkle forest-sparkle-left">✧</span>
+        <span class="forest-sparkle forest-sparkle-right">✦</span>
+        <div class="forest-animal">🦊</div>
+        <span class="forest-label">✧ &nbsp; 달빛 아래, 나를 만나는 숲</span>
+      </div>
+    </section>
+
+    <section class="quiz panel inner-panel" id="quiz" aria-labelledby="question-title" hidden>
+      <div class="progress-heading"><span class="eyebrow">나를 알아가는 중</span><span id="progress-count"></span></div>
+      <progress id="progress-bar" max="16" value="0" aria-label="응답한 문항 수"></progress>
+      <p class="question-number" id="question-number"></p>
+      <h1 id="question-title" tabindex="-1"></h1>
+      <p class="question-help" id="question-help">평소의 나와 더 가까운 반응을 골라주세요.</p>
+      <fieldset class="answers" aria-labelledby="question-title" aria-describedby="question-help">
+        <div class="answer-group" role="group" aria-labelledby="option-a">
+          <p class="answer-text" id="option-a"></p>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="answer" value="0" aria-labelledby="option-a a-strong"><span id="a-strong">많이 가까워요</span></label>
+            <label class="choice"><input type="radio" name="answer" value="1" aria-labelledby="option-a a-slight"><span id="a-slight">조금 가까워요</span></label>
+          </div>
+        </div>
+        <div class="answer-group" role="group" aria-labelledby="option-b">
+          <p class="answer-text" id="option-b"></p>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="answer" value="2" aria-labelledby="option-b b-slight"><span id="b-slight">조금 가까워요</span></label>
+            <label class="choice"><input type="radio" name="answer" value="3" aria-labelledby="option-b b-strong"><span id="b-strong">많이 가까워요</span></label>
+          </div>
+        </div>
+      </fieldset>
+      <div class="quiz-actions">
+        <button type="button" class="button secondary" id="back"></button>
+        <button type="button" class="button primary" id="next" disabled></button>
+      </div>
+    </section>
+
+    <section class="result panel inner-panel" id="result" aria-labelledby="result-title" hidden>
+      <div class="result-hero">
+        <p class="eyebrow">나의 동물 유형</p>
+        <div class="result-emoji" id="result-emoji" aria-hidden="true"></div>
+        <h1 id="result-title" tabindex="-1"></h1>
+        <p class="type-badge" id="result-type"></p>
+        <p class="result-summary" id="result-summary"></p>
+      </div>
+      <div class="result-body">
+        <h2>네 가지 성향으로 본 나</h2>
+        <div class="axis-grid" id="axis-grid"></div>
+        <section class="evidence">
+          <h2>내 답변에서 발견한 모습</h2>
+          <div id="answer-evidence"></div>
+        </section>
+        <div class="reflection"><h2>나를 돌아보는 질문</h2><p id="reflection"></p></div>
+        <div class="result-actions">
+          <button type="button" class="button primary" id="share">결과 공유하기 <span aria-hidden="true">↗</span></button>
+          <button type="button" class="button secondary" id="restart">다시 하기</button>
+        </div>
+        <p class="share-status" id="share-status" role="status" hidden></p>
+        <label class="share-fallback" id="share-fallback" hidden>공유할 결과 문구<textarea id="share-text" rows="4" readonly></textarea></label>
+      </div>
+    </section>
+
+    <noscript><p class="noscript">테스트를 시작하려면 브라우저에서 JavaScript를 켜주세요.</p></noscript>
+  </main>
+
+  <footer class="site-footer page-width"><span>✦ &nbsp; 내 안에 숨어있는 동물</span><span>일상 속 나를 돌아보는 성향 테스트</span></footer>
+</body>
+</html>
